@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>浮荡小镇公交车_线路时刻与沿途站点_乘车攻略与小镇见闻</title>
+<meta name="description" content="浮荡小镇公交车是一份围绕小镇环线与支线公交的乘车指南，收录线路时刻、沿途站点、票价规则、换乘方案与小镇日常见闻，适合初到小镇的通勤者与慢游旅客按图乘车。">
+<meta name="keywords" content="小镇环线时刻表,支线公交换乘,站点沿途风景,票价与乘车规则,小镇通勤路线">
+<style>
+:root{
+  --ink:#1d2430;
+  --ink-soft:#4a5566;
+  --ink-mute:#7a8699;
+  --paper:#f6f3ec;
+  --panel:#ffffff;
+  --panel-2:#fbf8f1;
+  --line:#e2dbcc;
+  --line-strong:#cfc5b0;
+  --brand:#2f6f5e;
+  --brand-deep:#1f4f42;
+  --brand-soft:#e6f0ea;
+  --accent:#c9702f;
+  --accent-soft:#fbeade;
+  --gold:#b9892f;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 1px 2px rgba(29,36,48,.05),0 8px 24px rgba(29,36,48,.06);
+  --shadow-up:0 12px 34px rgba(29,36,48,.12);
+  --stick:118px;
+  --maxw:1340px;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+  --serif:"Songti SC","Noto Serif SC",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ============ 吸顶公告条 + 页头 ============ */
+.stickwrap{position:sticky;top:0;z-index:60;box-shadow:0 1px 0 rgba(29,36,48,.06)}
+.notice{
+  background:linear-gradient(90deg,var(--brand-deep),var(--brand) 62%,#3a7f6b);
+  color:#eef6f2;font-size:13.5px;letter-spacing:.02em;
+}
+.notice-in{
+  max-width:var(--maxw);margin:0 auto;padding:8px 22px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.notice .dot{
+  width:7px;height:7px;border-radius:50%;background:#ffd27a;flex:none;
+  box-shadow:0 0 0 4px rgba(255,210,122,.22);
+}
+.notice b{font-weight:700;color:#fff}
+.notice a{margin-left:auto;color:#d9ece4;border-bottom:1px dashed rgba(217,236,228,.55);white-space:nowrap}
+.notice a:hover{color:#fff;border-bottom-color:#fff}
+
+.sitehead{background:rgba(246,243,236,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.head-in{
+  max-width:var(--maxw);margin:0 auto;padding:12px 22px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+.brand-mark{width:42px;height:42px;flex:none}
+.brand-txt{display:flex;flex-direction:column;line-height:1.15}
+.brand-txt strong{font-size:19px;letter-spacing:.03em;font-family:var(--serif)}
+.brand-txt span{font-size:11.5px;color:var(--ink-mute);letter-spacing:.16em;margin-top:3px}
+.headnav{display:flex;gap:4px;flex-wrap:wrap;margin-left:6px}
+.headnav a{
+  padding:7px 11px;border-radius:999px;font-size:14px;color:var(--ink-soft);
+  transition:background .18s,color .18s;
+}
+.headnav a:hover{background:var(--brand-soft);color:var(--brand-deep)}
+.head-tools{margin-left:auto;display:flex;align-items:center;gap:10px}
+.searchbox{position:relative;display:flex;align-items:center}
+.searchbox input{
+  width:196px;padding:8px 34px 8px 13px;border:1px solid var(--line-strong);
+  border-radius:999px;background:#fff;font-size:13.5px;color:var(--ink);font-family:inherit;
+}
+.searchbox input::placeholder{color:#a3adbd}
+.searchbox input:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px rgba(47,111,94,.14)}
+.searchbox button{
+  position:absolute;right:4px;width:28px;height:28px;border:0;border-radius:50%;
+  background:var(--brand);display:grid;place-items:center;
+}
+.searchbox button svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2}
+.btn-line{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:999px;
+  border:1px solid var(--brand);color:var(--brand-deep);font-size:13.5px;font-weight:600;background:#fff;
+}
+.btn-line:hover{background:var(--brand-soft)}
+.searchhint{
+  position:absolute;top:calc(100% + 8px);right:0;width:290px;background:#fff;
+  border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow-up);
+  padding:10px;font-size:13px;color:var(--ink-soft);display:none;z-index:80;
+}
+.searchhint.on{display:block}
+.searchhint .sh-title{font-weight:700;color:var(--ink);margin-bottom:6px;font-size:12.5px}
+.searchhint ul li{padding:5px 6px;border-radius:6px;line-height:1.5}
+.searchhint ul li:hover{background:var(--panel-2)}
+.searchhint .empty{color:var(--accent);font-weight:600}
+
+/* ============ 容器与布局 ============ */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.layout{
+  display:grid;grid-template-columns:186px minmax(0,1fr) 268px;
+  gap:26px;align-items:start;padding:26px 0 10px;
+}
+section[id],div[id].anchor{scroll-margin-top:var(--stick)}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(880px 340px at 84% -8%,rgba(47,111,94,.20),transparent 62%),
+    radial-gradient(620px 300px at 4% 108%,rgba(201,112,47,.16),transparent 66%),
+    linear-gradient(180deg,#fdfbf6,#f2eee3);
+  border-bottom:1px solid var(--line);
+}
+.hero-in{
+  max-width:var(--maxw);margin:0 auto;padding:40px 22px 44px;
+  display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:38px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:.14em;
+  color:var(--brand-deep);background:var(--brand-soft);border:1px solid #cfe2d9;
+  padding:5px 12px;border-radius:999px;font-weight:600;
+}
+.hero h1{
+  font-family:var(--serif);font-size:clamp(30px,4.1vw,50px);letter-spacing:.02em;
+  margin:16px 0 14px;color:var(--ink);
+}
+.hero h1 em{font-style:normal;color:var(--brand-deep);position:relative}
+.hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:9px;
+  background:rgba(201,112,47,.24);border-radius:3px;z-index:-1;
+}
+.hero-lead{font-size:16px;color:var(--ink-soft);max-width:52ch}
+.hero-lead b{color:var(--ink);font-weight:700}
+.hero-facts{display:flex;gap:22px;flex-wrap:wrap;margin:22px 0 24px}
+.hero-facts div{min-width:96px}
+.hero-facts strong{display:block;font-family:var(--serif);font-size:25px;color:var(--brand-deep);line-height:1.1}
+.hero-facts span{font-size:12.5px;color:var(--ink-mute);letter-spacing:.04em}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn-solid{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;
+  background:var(--brand-deep);color:#fff;font-weight:600;font-size:14.5px;border:1px solid var(--brand-deep);
+  box-shadow:0 6px 16px rgba(31,79,66,.22);
+}
+.btn-solid:hover{background:#17453a}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;
+  border:1px solid var(--line-strong);background:#fff;color:var(--ink-soft);font-weight:600;font-size:14.5px;
+}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand-deep)}
+
+/* 首屏视觉：小镇环线图 */
+.hero-visual{
+  position:relative;background:var(--panel);border:1px solid var(--line);
+  border-radius:20px;padding:16px 16px 12px;box-shadow:var(--shadow-up);
+}
+.hero-visual .hv-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.hero-visual .hv-head span{font-size:12px;letter-spacing:.12em;color:var(--ink-mute)}
+.hero-visual .hv-head b{font-size:13.5px;color:var(--brand-deep)}
+.hero-visual svg{width:100%;height:auto;display:block}
+.hv-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:11.5px;color:var(--ink-mute)}
+.hv-legend i{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
+
+/* ============ 通用板块 ============ */
+.sec{margin-bottom:34px}
+.sec-head{display:flex;align-items:flex-end;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--serif);font-size:22px;letter-spacing:.02em}
+.sec-head h2::before{
+  content:"";display:inline-block;width:5px;height:19px;border-radius:2px;
+  background:var(--brand);margin-right:10px;vertical-align:-3px;
+}
+.sec-head .sub{font-size:13px;color:var(--ink-mute);padding-bottom:3px}
+.sec-head .more{margin-left:auto;font-size:13px;color:var(--brand-deep);font-weight:600;padding-bottom:3px}
+.sec-head .more:hover{text-decoration:underline}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* 左频道栏 */
+.side-l{position:sticky;top:var(--stick);display:flex;flex-direction:column;gap:16px}
+.chan{border-radius:var(--radius);background:var(--panel);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow)}
+.chan h3{font-size:13px;letter-spacing:.14em;color:var(--ink-mute);padding:13px 15px 9px;font-weight:600}
+.chan ul{padding:0 8px 10px}
+.chan li a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:8px 9px;border-radius:var(--radius-sm);font-size:14px;color:var(--ink-soft);
+}
+.chan li a:hover{background:var(--brand-soft);color:var(--brand-deep)}
+.chan li a em{font-style:normal;font-size:11.5px;color:var(--ink-mute);background:var(--panel-2);border-radius:999px;padding:1px 7px}
+.chan li a:hover em{background:#fff;color:var(--brand-deep)}
+.mini-note{font-size:12.5px;color:var(--ink-mute);padding:0 15px 14px;line-height:1.6}
+
+/* 右辅助栏 */
+.side-r{display:flex;flex-direction:column;gap:18px;position:sticky;top:var(--stick)}
+.rank{border-radius:var(--radius);background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+.rank h3{
+  font-size:14px;padding:13px 15px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:8px;
+}
+.rank h3 .tag{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:1px 7px;border-radius:999px}
+.rank ol{padding:8px 10px 12px;counter-reset:rk}
+.rank ol li{counter-increment:rk;display:flex;gap:9px;padding:7px 4px;border-radius:8px;font-size:13.5px;line-height:1.55}
+.rank ol li:hover{background:var(--panel-2)}
+.rank ol li::before{
+  content:counter(rk);flex:none;width:19px;height:19px;border-radius:5px;
+  background:var(--panel-2);color:var(--ink-mute);font-size:11.5px;font-weight:700;
+  display:grid;place-items:center;margin-top:3px;
+}
+.rank ol li:nth-child(1)::before{background:var(--brand-deep);color:#fff}
+.rank ol li:nth-child(2)::before{background:var(--brand);color:#fff}
+.rank ol li:nth-child(3)::before{background:#6fa392;color:#fff}
+.rank ol li b{font-weight:600;color:var(--ink);display:block;font-size:13.5px}
+.rank ol li span{color:var(--ink-mute);font-size:12px}
+.updatefeed{padding:6px 14px 14px}
+.updatefeed li{padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px;line-height:1.55}
+.updatefeed li:last-child{border-bottom:0}
+.updatefeed b{display:block;color:var(--ink);font-weight:600;font-size:13.5px}
+.updatefeed span{color:var(--ink-mute);font-size:12px}
+
+/* ============ 概览 ============ */
+.overview{padding:24px 26px}
+.overview p{color:var(--ink-soft);font-size:15.2px;line-height:1.9}
+.overview p+p{margin-top:13px}
+.overview strong{color:var(--brand-deep)}
+.ov-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
+.ov-tags span{font-size:12.5px;color:var(--brand-deep);background:var(--brand-soft);border-radius:999px;padding:3px 11px}
+
+/* ============ 精选卡片 ============ */
+.cardgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-up);border-color:#d3c9b4}
+.card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e9e4d7}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.card:hover .thumb img{transform:scale(1.04)}
+.card .kind{
+  position:absolute;left:10px;top:10px;font-size:11.5px;font-weight:700;letter-spacing:.04em;
+  background:rgba(31,79,66,.92);color:#fff;padding:3px 9px;border-radius:6px;
+}
+.card .heat{
+  position:absolute;right:10px;bottom:10px;font-size:11.5px;font-weight:600;
+  background:rgba(255,255,255,.92);color:var(--accent);padding:2px 8px;border-radius:999px;
+}
+.card .body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:16px;line-height:1.45}
+.card .desc{font-size:13.4px;color:var(--ink-soft);line-height:1.68}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.card .tags span{font-size:11.5px;color:var(--ink-mute);background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+.card .meta{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-mute);border-top:1px dashed var(--line);padding-top:9px}
+
+/* ============ 最新动态 ============ */
+.updlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;padding:20px 24px}
+.updlist li{display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line);align-items:flex-start}
+.updlist li .time{
+  flex:none;font-size:11.5px;font-weight:700;color:var(--brand-deep);
+  background:var(--brand-soft);border-radius:6px;padding:2px 7px;margin-top:2px;min-width:52px;text-align:center;
+}
+.updlist li b{font-weight:600;font-size:14px;color:var(--ink)}
+.updlist li p{font-size:13px;color:var(--ink-mute);line-height:1.6}
+
+/* ============ 分类入口 ============ */
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat{
+  display:flex;flex-direction:column;gap:5px;padding:16px 15px;border-radius:var(--radius);
+  background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);
+  transition:border-color .18s,transform .18s,background .18s;
+}
+.cat:hover{border-color:var(--brand);transform:translateY(-2px);background:#fdfefa}
+.cat .cat-top{display:flex;align-items:center;gap:8px}
+.cat .ico{width:26px;height:26px;flex:none;border-radius:8px;background:var(--brand-soft);display:grid;place-items:center}
+.cat .ico svg{width:15px;height:15px;stroke:var(--brand-deep);fill:none;stroke-width:2}
+.cat b{font-size:15px}
+.cat span{font-size:12.5px;color:var(--ink-mute);line-height:1.55}
+.cat em{font-style:normal;font-size:11.5px;color:var(--brand);font-weight:600;margin-top:2px}
+
+/* ============ 深度解析 ============ */
+.deep{padding:28px 30px}
+.deep h2{font-family:var(--serif);font-size:24px;margin-bottom:8px}
+.deep .lead{color:var(--ink-mute);font-size:13.5px;margin-bottom:20px}
+.deep h3{font-size:17px;margin:26px 0 10px;color:var(--brand-deep)}
+.deep h3:first-of-type{margin-top:0}
+.deep p{font-size:15px;color:var(--ink-soft);line-height:1.92;margin-bottom:12px}
+.deep ul{margin:6px 0 14px;display:flex;flex-direction:column;gap:8px}
+.deep ul li{
+  position:relative;padding-left:20px;font-size:14.6px;color:var(--ink-soft);line-height:1.8;
+}
+.deep ul li::before{
+  content:"";position:absolute;left:4px;top:.72em;width:6px;height:6px;border-radius:50%;
+  background:var(--accent);opacity:.75;
+}
+.deep ul li b{color:var(--ink)}
+.deep .callout{
+  background:var(--panel-2);border-left:4px solid var(--brand);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:14px 18px;margin:16px 0;font-size:14.4px;color:var(--ink-soft);line-height:1.85;
+}
+.deep .callout b{color:var(--brand-deep)}
+.compare{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:14px}
+.compare th,.compare td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+.compare th{background:var(--panel-2);font-weight:700;color:var(--ink);font-size:13.5px}
+.compare td{color:var(--ink-soft);line-height:1.7}
+.compare tr:nth-child(even) td{background:#fcfaf5}
+
+/* ============ 乘车路径（编号步骤） ============ */
+.steps{padding:24px 26px;display:flex;flex-direction:column;gap:0}
+.step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:0;padding-bottom:0}
+.step .num{
+  width:36px;height:36px;border-radius:50%;background:var(--brand-deep);color:#fff;
+  display:grid;place-items:center;font-family:var(--serif);font-size:16px;font-weight:700;
+  box-shadow:0 4px 12px rgba(31,79,66,.24);
+}
+.step h3{font-size:15.5px;margin-bottom:5px}
+.step p{font-size:13.8px;color:var(--ink-soft);line-height:1.78}
+.step p em{font-style:normal;color:var(--accent);font-weight:600}
+
+/* ============ FAQ ============ */
+.faq{padding:14px 24px 20px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:last-child{border-bottom:0}
+.faq summary{
+  list-style:none;cursor:pointer;padding:15px 30px 15px 0;position:relative;
+  font-size:15.2px;font-weight:600;color:var(--ink);line-height:1.6;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:6px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--brand);border-bottom:2px solid var(--brand);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s;
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq summary:hover{color:var(--brand-deep)}
+.faq .ans{font-size:14.2px;color:var(--ink-soft);line-height:1.88;padding:0 12px 16px 0}
+.faq .ans b{color:var(--ink)}
+
+/* ============ 评论 ============ */
+.cmtgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.cmt{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;
+}
+.cmt .who{display:flex;align-items:center;gap:9px}
+.cmt .av{
+  width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:13px;font-weight:700;color:#fff;background:var(--brand);
+}
+.cmt .who b{font-size:13.5px;font-weight:600}
+.cmt .who span{font-size:11.5px;color:var(--ink-mute);margin-left:auto}
+.cmt p{font-size:13.4px;color:var(--ink-soft);line-height:1.72}
+.cmt .at{font-size:12px;color:var(--brand-deep);font-weight:600}
+.cmt .star{color:var(--gold);font-size:12px;letter-spacing:1px}
+
+/* ============ 资讯 ============ */
+.news{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.news-item{
+  display:grid;grid-template-columns:108px minmax(0,1fr);gap:13px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:11px;box-shadow:var(--shadow);
+}
+.news-item img{width:108px;height:82px;object-fit:cover;border-radius:var(--radius-sm)}
+.news-item h3{font-size:14.5px;line-height:1.5;margin-bottom:4px}
+.news-item p{font-size:12.8px;color:var(--ink-mute);line-height:1.62}
+.news-item time{font-size:11.5px;color:var(--brand);font-weight:600;display:block;margin-bottom:3px}
+
+/* ============ 相关推荐标签 ============ */
+.reltags{display:flex;flex-wrap:wrap;gap:10px;padding:20px 24px}
+.reltags a{
+  font-size:13.5px;padding:7px 14px;border-radius:999px;background:var(--panel);
+  border:1px solid var(--line-strong);color:var(--ink-soft);transition:all .18s;
+}
+.reltags a:hover{background:var(--brand-deep);border-color:var(--brand-deep);color:#fff}
+
+/* ============ 时间线 ============ */
+.timeline{padding:24px 26px 10px;position:relative}
+.timeline::before{
+  content:"";position:absolute;left:47px;top:34px;bottom:26px;width:2px;
+  background:linear-gradient(180deg,var(--brand),var(--line));
+}
+.tl{display:grid;grid-template-columns:74px minmax(0,1fr);gap:18px;padding-bottom:20px;position:relative}
+.tl .date{
+  font-size:12px;font-weight:700;color:var(--brand-deep);text-align:right;
+  padding-top:3px;line-height:1.5;
+}
+.tl .dot{
+  position:absolute;left:41px;top:8px;width:12px;height:12px;border-radius:50%;
+  background:#fff;border:3px solid var(--brand);box-shadow:0 0 0 3px var(--paper);
+}
+.tl .cont h3{font-size:14.8px;margin-bottom:4px}
+.tl .cont p{font-size:13.4px;color:var(--ink-soft);line-height:1.72}
+
+/* ============ 页尾 ============ */
+.sitefoot{background:#1b232c;color:#c2cad6;margin-top:26px}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:40px 22px 22px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand strong{font-family:var(--serif);font-size:18px;color:#fff;letter-spacing:.04em}
+.foot-top p{font-size:13px;line-height:1.85;color:#93a0b1;max-width:34ch}
+.foot-col h4{font-size:13.5px;color:#fff;margin-bottom:11px;letter-spacing:.06em}
+.foot-col ul{display:flex;flex-direction:column;gap:7px}
+.foot-col a{font-size:13px;color:#93a0b1}
+.foot-col a:hover{color:#fff}
+.foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px;font-size:12.2px;color:#7c8899;line-height:1.8}
+.foot-bot .disc{max-width:66ch}
+
+@media(max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr);gap:22px}
+  .side-r{display:none}
+  .cardgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cmtgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot-top{grid-template-columns:1.2fr 1fr 1fr}
+}
+@media(max-width:1024px){
+  :root{--stick:104px}
+  .hero-in{grid-template-columns:1fr;gap:26px}
+  .hero-visual{order:2}
+  .updlist{grid-template-columns:1fr}
+  .news{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;gap:0}
+  .side-l{position:static;order:-1;margin-bottom:22px}
+  .chan ul{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px}
+  .chan li{flex:0 0 auto}
+  .chan li a{white-space:nowrap;background:var(--panel-2)}
+  .mini-note{display:none}
+  .headnav{order:3;width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .headnav a{white-space:nowrap}
+  .head-tools{order:2}
+}
+@media(max-width:740px){
+  :root{--stick:112px}
+  .notice-in{padding:7px 16px;font-size:12.5px}
+  .notice a{margin-left:0}
+  .head-in{padding:10px 16px;gap:12px}
+  .wrap{padding:0 16px}
+  .hero-in{padding:26px 16px 30px}
+  .hero-facts{gap:16px}
+  .cardgrid{grid-template-columns:1fr}
+  .cats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmtgrid{grid-template-columns:1fr}
+  .overview,.deep,.steps,.faq,.updlist,.reltags,.timeline{padding-left:17px;padding-right:17px}
+  .searchbox input{width:150px}
+  .btn-line{display:none}
+  .foot-top{grid-template-columns:1fr 1fr;gap:22px}
+  .deep{font-size:15px}
+  .compare{font-size:13px}
+  .compare th,.compare td{padding:7px 9px}
+  .news-item{grid-template-columns:90px minmax(0,1fr)}
+  .news-item img{width:90px;height:70px}
+  .step{grid-template-columns:34px minmax(0,1fr);gap:12px}
+  .step .num{width:30px;height:30px;font-size:14px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<div class="stickwrap">
+  <div class="notice">
+    <div class="notice-in">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b>本周新增 9 条线路时刻</b>：环线夜班加开 2 班，西塘支线 11 月 24 日起改停新码头站，3 号线终点延至石桥。</span>
+      <a href="#updates">查看全部更新 →</a>
+    </div>
+  </div>
+
+  <header class="sitehead">
+    <div class="head-in">
+      <a class="brand" href="#top" aria-label="浮荡小镇公交车首页">
+        <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-label="浮荡小镇公交车标志：环线与车头组合">
+          <circle cx="24" cy="24" r="21" fill="#1f4f42"/>
+          <circle cx="24" cy="24" r="14.5" fill="none" stroke="#8fc3b2" stroke-width="1.6" stroke-dasharray="3 4"/>
+          <rect x="15" y="19" width="18" height="12" rx="3" fill="#f6f3ec"/>
+          <rect x="17.5" y="21.5" width="6.5" height="4.5" rx="1" fill="#2f6f5e"/>
+          <rect x="25.5" y="21.5" width="5" height="4.5" rx="1" fill="#2f6f5e"/>
+          <circle cx="19" cy="32.5" r="2" fill="#c9702f"/>
+          <circle cx="29" cy="32.5" r="2" fill="#c9702f"/>
+          <path d="M24 3.5v3M24 41.5v3M3.5 24h3M41.5 24h3" stroke="#c9702f" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-txt">
+          <strong>浮荡小镇公交车</strong>
+          <span>ROAMING TOWN BUS</span>
+        </span>
+      </a>
+
+      <nav class="headnav" aria-label="主导航">
+        <a href="#overview">线路概览</a>
+        <a href="#featured">精选线路</a>
+        <a href="#updates">最新动态</a>
+        <a href="#cats">按需乘车</a>
+        <a href="#deep">深度解析</a>
+        <a href="#guide">乘车路径</a>
+        <a href="#faq">常见问题</a>
+        <a href="#news">小镇资讯</a>
+      </nav>
+
+      <div class="head-tools">
+        <div class="searchbox">
+          <label for="q" class="sr-only" style="position:absolute;left:-9999px">搜索线路或站点</label>
+          <input id="q" type="search" placeholder="搜线路 / 站点 / 换乘" autocomplete="off">
+          <button type="button" id="qbtn" aria-label="搜索">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4" stroke-linecap="round"/></svg>
+          </button>
+          <div class="searchhint" id="hint" role="status" aria-live="polite"></div>
+        </div>
+        <a class="btn-line" href="#guide">怎么坐车</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- ================= 首屏 ================= -->
+  <section class="hero">
+    <div class="hero-in">
+      <div>
+        <span class="hero-eyebrow">小镇环线 · 支线 · 夜班车</span>
+        <h1>浮荡小镇公交车</h1>
+        <p class="hero-lead">
+          这座小镇的路会随潮水浮沉，公交线路也跟着改道。这里收着 <b>6 条主线与 4 条支线</b> 的时刻、站点、票价与换乘方式，
+          也记着司机、站牌和乘客之间那些具体的日常。初来的人照着走，常来的人按图查。
+        </p>
+        <div class="hero-facts">
+          <div><strong>10</strong><span>在营线路</span></div>
+          <div><strong>63</strong><span>固定站点</span></div>
+          <div><strong>17</strong><span>分钟均班距</span></div>
+          <div><strong>2 元</strong><span>起步票价</span></div>
+        </div>
+        <div class="hero-cta">
+          <a class="btn-solid" href="#featured">查看精选线路</a>
+          <a class="btn-ghost" href="#updates">今日更新 9 条</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="小镇环线示意图">
+        <div class="hv-head">
+          <b>环线 R1 · 实时示意</b>
+          <span>更新 2026-11-25 09:20</span>
+        </div>
+        <svg viewBox="0 0 460 300" role="img" aria-label="浮荡小镇环线与三条支线走向示意图">
+          <defs>
+            <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e8f1ec"/><stop offset="1" stop-color="#d7e7de"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="460" height="300" fill="url(#water)" rx="12"/>
+          <path d="M0 208c60-24 96 10 150-6s78-44 132-30 92 40 178 20v108H0z" fill="#c6ded3" opacity=".8"/>
+          <path d="M0 244c54-16 92 8 146-6s96-32 150-18 84 26 164 12v68H0z" fill="#a9cdbf" opacity=".7"/>
+
+          <!-- 环线 -->
+          <ellipse cx="228" cy="140" rx="128" ry="86" fill="none" stroke="#2f6f5e" stroke-width="5" opacity=".9"/>
+          <ellipse cx="228" cy="140" rx="128" ry="86" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="6 12"/>
+
+          <!-- 支线 -->
+          <path d="M228 54V22" stroke="#c9702f" stroke-width="4" stroke-linecap="round"/>
+          <path d="M356 140h62" stroke="#c9702f" stroke-width="4" stroke-linecap="round"/>
+          <path d="M228 226v46" stroke="#b9892f" stroke-width="4" stroke-linecap="round"/>
+          <path d="M118 108 60 74" stroke="#6fa392" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- 站点 -->
+          <g fill="#ffffff" stroke="#1f4f42" stroke-width="2.6">
+            <circle cx="228" cy="54" r="7"/>
+            <circle cx="356" cy="140" r="7"/>
+            <circle cx="228" cy="226" r="7"/>
+            <circle cx="100" cy="140" r="7"/>
+            <circle cx="166" cy="76" r="5.5"/>
+            <circle cx="306" cy="96" r="5.5"/>
+            <circle cx="308" cy="188" r="5.5"/>
+            <circle cx="160" cy="200" r="5.5"/>
+          </g>
+          <g fill="#1f4f42" font-family="sans-serif" font-size="11.5" font-weight="600">
+            <text x="240" y="50">北码头站</text>
+            <text x="366" y="135">石桥站</text>
+            <text x="240" y="232">南塘站</text>
+            <text x="30" y="134">西塘站</text>
+            <text x="120" y="70">钟楼站</text>
+            <text x="314" y="92">旧船厂</text>
+          </g>
+          <circle cx="228" cy="54" r="13" fill="none" stroke="#c9702f" stroke-width="2" opacity=".7">
+            <animate attributeName="r" values="9;16;9" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values=".8;0;.8" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <g fill="#c9702f" font-family="sans-serif" font-size="10.5" font-weight="700">
+            <text x="196" y="292">潮汐水位线</text>
+          </g>
+        </svg>
+        <div class="hv-legend">
+          <span><i style="background:#2f6f5e"></i>环线 R1</span>
+          <span><i style="background:#c9702f"></i>跨河支线</span>
+          <span><i style="background:#b9892f"></i>夜班 N1</span>
+          <span><i style="background:#6fa392"></i>西塘支线</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="layout">
+
+      <!-- ============ 左频道栏 ============ -->
+      <aside class="side-l" aria-label="频道索引">
+        <div class="chan">
+          <h3>乘车频道</h3>
+          <ul>
+            <li><a href="#cats">环线主线 <em>R1</em></a></li>
+            <li><a href="#cats">跨河支线 <em>S2</em></a></li>
+            <li><a href="#cats">西塘支线 <em>S3</em></a></li>
+            <li><a href="#cats">夜班车 <em>N1</em></a></li>
+            <li><a href="#cats">集市专线 <em>M4</em></a></li>
+            <li><a href="#cats">学堂接驳 <em>X5</em></a></li>
+            <li><a href="#cats">码头接驳 <em>P6</em></a></li>
+            <li><a href="#cats">潮汐改道 <em>T7</em></a></li>
+            <li><a href="#guide">换乘与票价</a></li>
+            <li><a href="#faq">乘车常见问题</a></li>
+          </ul>
+        </div>
+        <p class="mini-note">潮位超过 2.4 米时，西塘支线改走堤顶路，站点不变，行车多约 6 分钟。</p>
+      </aside>
+
+      <!-- ============ 中主内容 ============ -->
+      <div class="main-col">
+
+        <!-- 1. 主题领域概览 -->
+        <section class="sec overview panel" id="overview">
+          <div class="sec-head" style="margin-bottom:12px">
+            <h2>小镇公交的方向与看点</h2>
+          </div>
+          <p>
+            浮荡小镇公交车不是一条线，而是一套绕着小岛水网铺开的交通系统。它由一条 <strong>R1 环线</strong> 串起北码头、钟楼、旧船厂与南塘四个片区，
+            再由 <strong>S2 跨河支线、S3 西塘支线、M4 集市专线、X5 学堂接驳、P6 码头接驳</strong> 伸进陆路走不到的地方。
+            因为地面随潮水起落，线路每年至少改道两次，站牌上贴的临时通告往往比印好的线路图更有用。
+          </p>
+          <p>
+            目前值得关注的具体内容有三块：一是 <strong>R1 环线夜班加开</strong>，从 11 月 24 日起末班由 21:10 延到 22:40，途经钟楼与南塘；
+            二是 <strong>S3 西塘支线改停新码头站</strong>，旧码头站因栈桥检修暂停使用；三是 <strong>T7 潮汐改道方案</strong> 在冬季水位偏低时有特别走法，
+            去堤顶看芦苇的人要留意。此外，司机换班点、纸质票根、站牌手写便条这些细节，也构成这条线路独有的人情味。
+          </p>
+          <div class="ov-tags">
+            <span>环线 R1 时刻</span><span>跨河换乘</span><span>潮汐改道规则</span>
+            <span>夜班车末班</span><span>集市专线逢集日</span><span>票价与月票</span>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="sec" id="featured">
+          <div class="sec-head">
+            <h2>精选线路与乘车方案</h2>
+            <span class="sub">按用途挑选，不必全部坐一遍</span>
+            <a class="more" href="#cats">全部线路 →</a>
+          </div>
+          <div class="cardgrid" id="cardgrid">
+
+            <article class="card" data-key="环线 R1 北码头 钟楼 旧船厂 南塘">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/huanxian-r1-01/400/300" width="400" height="300" loading="lazy" alt="环线 R1 北码头站清晨候车亭与站牌">
+                <span class="kind">环线主线</span>
+                <span class="heat">今日 2,180 人查</span>
+              </div>
+              <div class="body">
+                <h3>R1 环线：北码头—钟楼—旧船厂—南塘</h3>
+                <p class="desc">一圈 42 分钟，全程 14 站。适合第一次到小镇的人用一圈认路，沿途能看清四个片区的差别。班距 17 分钟，早晚高峰加密到 9 分钟。</p>
+                <div class="tags"><span>认路首选</span><span>班距 17 分钟</span><span>全程 2 元</span></div>
+                <div class="meta"><span>首班 05:50 / 末班 22:40</span><span>准点率 94%</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="跨河支线 S2 石桥 旧船厂 换乘">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/kuahe-s2-02/400/300" width="400" height="300" loading="lazy" alt="跨河支线 S2 石桥站候车平台与过河渡桥">
+                <span class="kind">跨河支线</span>
+                <span class="heat">今日 1,640 人查</span>
+              </div>
+              <div class="body">
+                <h3>S2 跨河支线：旧船厂—石桥—对岸集市</h3>
+                <p class="desc">唯一过河的常规线，走浮桥，涨潮时浮桥抬高，车速会慢下来。到对岸集市只需 11 分钟，比绕环线少走 20 分钟。</p>
+                <div class="tags"><span>过河唯一</span><span>浮桥限速</span><span>接 R1 旧船厂</span></div>
+                <div class="meta"><span>首班 06:10 / 末班 20:30</span><span>班距 25 分钟</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="西塘支线 S3 新码头 堤顶路 芦苇">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/xitang-s3-03/400/300" width="400" height="300" loading="lazy" alt="西塘支线 S3 新码头站牌与堤顶路芦苇">
+                <span class="kind">西塘支线</span>
+                <span class="heat">今日 1,290 人查</span>
+              </div>
+              <div class="body">
+                <h3>S3 西塘支线：西塘站—新码头—堤顶路</h3>
+                <p class="desc">11 月 24 日起改停新码头站，旧码头站封闭检修。堤顶路一段能看见整片芦苇荡，是秋冬最值得坐的一程，建议坐右侧靠窗。</p>
+                <div class="tags"><span>已改站</span><span>芦苇观景</span><span>检修通告</span></div>
+                <div class="meta"><span>首班 06:30 / 末班 19:50</span><span>班距 30 分钟</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="夜班车 N1 钟楼 南塘 末班">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/yeban-n1-04/400/300" width="400" height="300" loading="lazy" alt="夜班车 N1 夜间站台灯光与车头灯">
+                <span class="kind">夜班线路</span>
+                <span class="heat">今日 1,905 人查</span>
+              </div>
+              <div class="body">
+                <h3>N1 夜班车：钟楼—南塘—北码头</h3>
+                <p class="desc">11 月 24 日起加开两班，末班延到 22:40。夜里只停 6 个大站，司机允许在非站点路段招手即停，但需提前一站告知。</p>
+                <div class="tags"><span>末班 22:40</span><span>招手即停</span><span>仅 6 站</span></div>
+                <div class="meta"><span>首班 19:30 / 末班 22:40</span><span>班距 35 分钟</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="集市专线 M4 逢集日 对岸集市 赶集">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/jishi-m4-05/400/300" width="400" height="300" loading="lazy" alt="集市专线 M4 车厢内摆放的菜篮与赶集乘客">
+                <span class="kind">逢集专线</span>
+                <span class="heat">今日 1,120 人查</span>
+              </div>
+              <div class="body">
+                <h3>M4 集市专线：南塘—对岸集市（逢农历二、五、八）</h3>
+                <p class="desc">只在赶集日开，车厢后半段拆掉两排座椅放菜筐。首班 05:20 从南塘发，回程末班 13:40，错过就要坐 S2 绕行。</p>
+                <div class="tags"><span>逢集日开行</span><span>可带菜筐</span><span>回程末班 13:40</span></div>
+                <div class="meta"><span>下一集日 11 月 27 日</span><span>单程 3 元</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="学堂接驳 X5 钟楼 学堂 学生">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/xuetang-x5-06/400/300" width="400" height="300" loading="lazy" alt="学堂接驳 X5 校门口候车的学生队伍">
+                <span class="kind">通学接驳</span>
+                <span class="heat">今日 860 人查</span>
+              </div>
+              <div class="body">
+                <h3>X5 学堂接驳：钟楼—镇小学—旧船厂宿舍</h3>
+                <p class="desc">只在上下学时段运行，早 07:00—08:10、晚 16:20—17:30。学生刷卡免费，陪同家长按普通票价，车上不设站位。</p>
+                <div class="tags"><span>上下学时段</span><span>学生免费</span><span>不设站位</span></div>
+                <div class="meta"><span>早班 07:00 起</span><span>班距 12 分钟</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="码头接驳 P6 北码头 渡轮 船班">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/matou-p6-07/400/300" width="400" height="300" loading="lazy" alt="码头接驳 P6 北码头渡轮靠泊与站台">
+                <span class="kind">船车接驳</span>
+                <span class="heat">今日 1,470 人查</span>
+              </div>
+              <div class="body">
+                <h3>P6 码头接驳：北码头—渡轮口—南塘</h3>
+                <p class="desc">按渡轮船班倒排发车，船到前 15 分钟必有一班。错过船的人可以在候船厅改签，接驳车票当日不限次。</p>
+                <div class="tags"><span>对齐船班</span><span>票当日有效</span><span>可改签</span></div>
+                <div class="meta"><span>随船班浮动</span><span>单程 2 元</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="潮汐改道 T7 堤顶路 水位 临时通告">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/chaoxi-t7-08/400/300" width="400" height="300" loading="lazy" alt="潮汐改道 T7 水位标尺与临时改道告示牌">
+                <span class="kind">临时改道</span>
+                <span class="heat">今日 980 人查</span>
+              </div>
+              <div class="body">
+                <h3>T7 潮汐改道：低洼段绕行方案</h3>
+                <p class="desc">水位超 2.4 米或低于 0.6 米时，环线南段改走堤顶路，跳过南塘市场站。改道信息在站牌二维码与司机口头播报同步。</p>
+                <div class="tags"><span>水位触发</span><span>跳过 1 站</span><span>多 6 分钟</span></div>
+                <div class="meta"><span>今日未触发</span><span>下次预报 11 月 28 日</span></div>
+              </div>
+            </article>
+
+            <article class="card" data-key="月票 票价 纸质票根 通勤">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/yuepiao-09/400/300" width="400" height="300" loading="lazy" alt="小镇公交月票与纸质票根特写">
+                <span class="kind">票务规则</span>
+                <span class="heat">今日 2,030 人查</span>
+              </div>
+              <div class="body">
+                <h3>月票与纸质票根：通勤者的省钱方式</h3>
+                <p class="desc">月票 68 元，环线与四条支线通用，夜班车另计。投币仍是主流，司机保留撕票根的习惯，票根背面印当日潮位。</p>
+                <div class="tags"><span>月票 68 元</span><span>夜班另计</span><span>票根藏潮位</span></div>
+                <div class="meta"><span>售票点：北码头候车厅</span><span>每月 25 日起售</span></div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- 3. 最新更新 -->
+        <section class="sec panel" id="updates">
+          <div class="sec-head" style="padding:18px 24px 0;margin-bottom:0">
+            <h2>最新更新与运营动态</h2>
+            <span class="sub">2026 年 11 月 25 日整理</span>
+          </div>
+          <ul class="updlist">
+            <li><span class="time">今天 09:20</span><div><b>R1 环线夜班加开两班</b><p>末班由 21:10 延至 22:40，新增 21:50、22:40 两班，停靠钟楼、南塘、北码头。</p></div></li>
+            <li><span class="time">今天 08:05</span><div><b>S3 西塘支线改停新码头站</b><p>旧码头站栈桥检修，11 月 24 日起启用新码头站，步行多 3 分钟，站牌已换。</p></div></li>
+            <li><span class="time">昨天 21:10</span><div><b>N1 夜班车试行招手即停</b><p>非站点路段可招手，需提前一站告知司机，试行至 12 月 20 日。</p></div></li>
+            <li><span class="time">昨天 17:40</span><div><b>X5 学堂接驳增开晚班一班</b><p>17:10 加开一趟，缓解镇小学门口滞留，仍不设站位。</p></div></li>
+            <li><span class="time">11 月 23 日</span><div><b>M4 集市专线下一集日确定</b><p>11 月 27 日（农历初八）开行，首班 05:20 南塘发车，回程末班 13:40。</p></div></li>
+            <li><span class="time">11 月 22 日</span><div><b>3 号线终点延至石桥</b><p>原终点旧船厂改为经停，延线 1.8 公里，票价不变。</p></div></li>
+            <li><span class="time">11 月 20 日</span><div><b>北码头候车厅开放取暖区</b><p>每日 05:30—23:00 开放，提供热水，等夜班车的人可进厅候车。</p></div></li>
+            <li><span class="time">11 月 18 日</span><div><b>月票 12 月场次开售</b><p>北码头候车厅窗口每日 08:00—18:00 售，68 元，需带一寸照。</p></div></li>
+            <li><span class="time">11 月 15 日</span><div><b>潮汐改道 T7 冬季方案启用</b><p>低水位时改走堤顶路，跳过南塘市场站，单程多约 6 分钟。</p></div></li>
+            <li><span class="time">11 月 12 日</span><div><b>南塘站牌加装潮位标尺</b><p>乘客可自行读取水位，判断是否触发改道，标尺与调度室同源。</p></div></li>
+          </ul>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="sec" id="cats">
+          <div class="sec-head">
+            <h2>按需求乘车</h2>
+            <span class="sub">8 类常见出行场景对应的线路</span>
+          </div>
+          <div class="cats">
+            <a class="cat" href="#featured">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><b>环线认路</b></div>
+              <span>第一次来，用一圈看清四个片区</span><em>R1 环线</em>
+            </a>
+            <a class="cat" href="#featured">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 17c3-6 6 0 9-4s6 2 9-3"/></svg></span><b>过河换乘</b></div>
+              <span>往返对岸集市与渡轮口</span><em>S2 / P6</em>
+            </a>
+            <a class="cat" href="#featured">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 10l7-7 7 7"/></svg></span><b>观景慢行</b></div>
+              <span>芦苇荡、堤顶路与旧船厂</span><em>S3 堤顶路</em>
+            </a>
+            <a class="cat" href="#featured">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 20a8 8 0 1 0-8-8"/><path d="M4 4v5h5"/></svg></span><b>夜归末班</b></div>
+              <span>夜里回北码头与南塘</span><em>N1 夜班</em>
+            </a>
+            <a class="cat" href="#featured">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><b>赶集带货</b></div>
+              <span>逢农历二、五、八开行</span><em>M4 集市专线</em>
+            </a>
+            <a class="cat" href="#featured">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5v10H3z"/><path d="M9 19v-6h6v6"/></svg></span><b>通学接驳</b></div>
+              <span>镇小学上下学时段专线</span><em>X5 学堂线</em>
+            </a>
+            <a class="cat" href="#featured">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 18c4-2 4-10 8-10s4 8 8 10"/></svg></span><b>潮汐改道</b></div>
+              <span>水位触发时的绕行方案</span><em>T7 临时线</em>
+            </a>
+            <a class="cat" href="#guide">
+              <div class="cat-top"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></span><b>票务与月票</b></div>
+              <span>票价、投币、月票与票根</span><em>通勤省钱</em>
+            </a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析 -->
+        <section class="sec panel deep" id="deep">
+          <h2>读懂这套线路：类型差异、规则与取舍</h2>
+          <p class="lead">这一节讲的是浮荡小镇公交车各条线路本身怎么区分，以及判断一条线值不值得坐的具体依据。</p>
+
+          <h3>主线与支线的分工：先分清用途再查时刻</h3>
+          <p>
+            R1 环线是骨架，负责把四个片区连成一圈；S2、S3、M4、X5、P6 这些支线负责把环线接不到的地方补上。判断一条线属于哪类，看两件事：
+            是否与环线有换乘站、班距是否固定在 30 分钟以内。环线班距 17 分钟、早晚高峰 9 分钟，支线大多 25—35 分钟，M4 只在集日出现。
+            这个差别决定了两类线的使用方式完全不同：环线可以大致到站就走，支线必须掐点。
+          </p>
+          <p>
+            <b>S2 跨河支线</b> 是唯一过河的常规线，走浮桥。涨潮时浮桥抬高，车速降到 15 公里上下，所以它看起来只有 11 分钟路程，实际在潮位高的时候要按 18 分钟算。
+            <b>S3 西塘支线</b> 的价值在观景，不在速度：堤顶路一段左右都是芦苇，坐右侧靠窗能看完整片。它 11 月 24 日起改停新码头站，旧码头站封闭检修，
+            从西塘站到新码头站步行多 3 分钟，这是必须提前知道的。
+          </p>
+
+          <h3>潮汐改道 T7 的触发逻辑</h3>
+          <p>
+            浮荡小镇的地面随水位起落，改道不是偶发事件，而是有明确阈值的规则：
+          </p>
+          <ul>
+            <li><b>水位高于 2.4 米</b>：环线南段跳过南塘市场站，改走堤顶路，单程多约 6 分钟。</li>
+            <li><b>水位低于 0.6 米</b>：低洼段露底，同样改走堤顶路，但停靠点移到堤顶临时站。</li>
+            <li><b>水位在 0.6—2.4 米之间</b>：正常走原线，不触发改道，这是全年大多数时候的状态。</li>
+          </ul>
+          <p>
+            判断当天是否会改道，最直接的办法是看南塘站牌上的潮位标尺——11 月 12 日加装，读数与调度室同源。其次看司机发车前的口头播报，
+            站牌二维码里的临时通告更新稍慢，约滞后 10 分钟。
+          </p>
+
+          <h3>票务规则与它的取舍</h3>
+          <p>
+            单程投币 2 元，跨河支线 S2 与集市专线 M4 是 3 元，夜班 N1 单独计价 3 元。月票 68 元，覆盖环线与四条支线，夜班另计。
+            这套定价意味着：<b>每天往返两次以上、且以环线与支线为主的人，月票在第 17 次乘车后开始省钱</b>；只坐夜班或只坐 M4 的人买月票不划算。
+          </p>
+          <div class="callout">
+            <b>关于票根：</b>司机仍保留撕票根的习惯，纸质票根背面印当日潮位与发车时刻。常客会把票根留着，遇到改道争议时，票根上的潮位读数就是最直接的凭据。
+            这是这套系统里少见的、能自己留证据的环节。
+          </div>
+
+          <h3>几组容易混淆的对比</h3>
+          <table class="compare">
+            <thead>
+              <tr><th>对比项</th><th>R1 环线</th><th>S3 西塘支线</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>主要用途</td><td>通勤、认路、跨片区</td><td>观景、去堤顶与芦苇荡</td></tr>
+              <tr><td>班距</td><td>17 分钟（高峰 9 分钟）</td><td>30 分钟</td></tr>
+              <tr><td>末班</td><td>22:40（11 月 24 日起）</td><td>19:50</td></tr>
+              <tr><td>受潮汐影响</td><td>南段可能改道</td><td>改停新码头站，站距变长</td></tr>
+            </tbody>
+          </table>
+          <table class="compare">
+            <thead>
+              <tr><th>对比项</th><th>N1 夜班车</th><th>P6 码头接驳</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>发车依据</td><td>固定时刻，35 分钟一班</td><td>按渡轮船班倒排</td></tr>
+              <tr><td>停站</td><td>仅 6 个大站，可招手即停</td><td>固定 3 站</td></tr>
+              <tr><td>票价</td><td>3 元，月票不通用</td><td>2 元，当日不限次</td></tr>
+              <tr><td>适合谁</td><td>夜归、错过末班环线的人</td><td>要赶船或刚下船的人</td></tr>
+            </tbody>
+          </table>
+          <p>
+            把这些规则记住之后，实际查时刻会快很多：先确定你要去的地方属于哪个片区，再看有没有支线直达，没有就回到环线找最近的换乘站。
+            环线的四个换乘节点是北码头、钟楼、旧船厂、南塘，支线基本都挂在这四个点上。
+          </p>
+        </section>
+
+        <!-- 6. 乘车路径（体验指南） -->
+        <section class="sec panel" id="guide">
+          <div class="sec-head" style="padding:18px 24px 0;margin-bottom:6px">
+            <h2>第一次坐：按这个顺序判断</h2>
+            <span class="sub">从选线到上车，六步走完</span>
+          </div>
+          <div class="steps">
+            <div class="step"><span class="num">1</span><div><h3>先定片区，不要先看线路号</h3><p>北码头、钟楼、旧船厂、南塘是四个片区，绝大多数目的地都能归到其中之一。先确定片区，再找直达线，比逐个翻时刻表快得多。</p></div></div>
+            <div class="step"><span class="num">2</span><div><h3>查有没有支线直达，没有就回环线</h3><p>对岸集市走 S2，堤顶与芦苇走 S3，赶集日走 M4，镇小学走 X5，渡轮口走 P6。以上都不沾，就坐 R1 到最近换乘站再转。</p></div></div>
+            <div class="step"><span class="num">3</span><div><h3>看当天潮位，决定要不要加时间</h3><p>水位高于 2.4 米或低于 0.6 米时，南段改道，单程多 6 分钟。南塘站牌上有潮位标尺，出门前看一眼比刷手机可靠。</p></div></div>
+            <div class="step"><span class="num">4</span><div><h3>估算等车时间，支线按 30 分钟留</h3><p>环线按 17 分钟留，早晚高峰按 9 分钟；支线一律按 30 分钟留，M4 只在集日有，错过就等下一集。夜班按 35 分钟留。</p></div></div>
+            <div class="step"><span class="num">5</span><div><h3>准备好零钱或月票</h3><p>投币 2 元，S2 与 M4 是 3 元，N1 是 3 元且月票不通用。车上不找零，北码头候车厅窗口可换零钱，08:00—18:00。</p></div></div>
+            <div class="step"><span class="num">6</span><div><h3>上车后记下票根上的潮位</h3><p>票根背面印发车时刻与当日潮位。若返程遇到改道争议，这张纸就是最直接的凭据；也顺手能记住自己坐的是哪一班。</p></div></div>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="sec panel" id="faq">
+          <div class="sec-head" style="padding:18px 24px 0;margin-bottom:4px">
+            <h2>乘车常见问题</h2>
+            <span class="sub">按实际被问到的顺序排列</span>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>第一次来浮荡小镇，从哪条线开始坐比较好？</summary>
+              <div class="ans">建议先坐 <b>R1 环线</b> 完整绕一圈，42 分钟、14 站，能把北码头、钟楼、旧船厂、南塘四个片区的相对位置看清楚。之后再按目的地选支线，比一上来就查支线时刻表更不容易坐错方向。环线首班 05:50，末班 22:40。</div>
+            </details>
+            <details>
+              <summary>环线 R1 一般多久一班？末班到底几点？</summary>
+              <div class="ans">平日班距 <b>17 分钟</b>，早晚高峰加密到 <b>9 分钟</b>。末班从 2026 年 11 月 24 日起由 21:10 延至 <b>22:40</b>，新增 21:50 与 22:40 两班，停靠钟楼、南塘、北码头。夜班 N1 是另一条线，不要和环线末班混在一起。</div>
+            </details>
+            <details>
+              <summary>S3 西塘支线为什么改停新码头站？旧码头站还能下吗？</summary>
+              <div class="ans">旧码头站栈桥自 11 月 24 日起封闭检修，<b>S3 改停新码头站</b>，旧站不再停靠。从西塘站到新码头站步行多约 3 分钟，站牌已更换。检修期预计到 12 月中，恢复时间以站牌临时通告为准。</div>
+            </details>
+            <details>
+              <summary>潮汐改道 T7 什么情况下会触发？怎么提前知道？</summary>
+              <div class="ans">水位高于 <b>2.4 米</b> 或低于 <b>0.6 米</b> 时触发，环线南段改走堤顶路，跳过南塘市场站，单程多约 6 分钟。提前判断最可靠的是南塘站牌上的潮位标尺，读数与调度室同源；其次是司机发车前的口头播报。站牌二维码里的通告约滞后 10 分钟。</div>
+            </details>
+            <details>
+              <summary>月票值不值得买？夜班车能用吗？</summary>
+              <div class="ans">月票 <b>68 元</b>，覆盖环线与四条支线，<b>夜班 N1 不通用</b>，需另付 3 元。每天往返两次以上、主要坐环线和支线的人，大约第 17 次乘车后开始省钱；只坐夜班或只坐集市专线的人不建议买。每月 25 日起在北码头候车厅窗口出售。</div>
+            </details>
+            <details>
+              <summary>S2 跨河支线和 P6 码头接驳有什么区别？</summary>
+              <div class="ans">S2 是<b>唯一过河的常规线</b>，走浮桥，从旧船厂到对岸集市约 11 分钟，涨潮时浮桥抬高会变慢，按 18 分钟算更稳。P6 不过河，只跑北码头—渡轮口—南塘三点，按渡轮船班倒排发车，船到前 15 分钟必有一班，票当日不限次。赶船选 P6，去对岸集市选 S2。</div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="sec" id="comments">
+          <div class="sec-head">
+            <h2>乘客怎么说</h2>
+            <span class="sub">来自站台与车厢的 15 条留言</span>
+          </div>
+          <div class="cmtgrid">
+            <div class="cmt"><div class="who"><span class="av" style="background:#2f6f5e">阿</span><b>阿潮</b><span>今天 10:12</span></div><p class="at">R1 环线</p><p>夜班延到 22:40 之后，从钟楼回北码头终于不用跑了。昨晚 22:40 那班人不多，司机还提醒下一站有人招手。</p><div class="star">★★★★★</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#c9702f">老</span><b>老周卖鱼</b><span>今天 09:40</span></div><p class="at">M4 集市专线</p><p>逢集日坐 M4 十几年了，车厢后半段放菜筐这点很实在。就是回程 13:40 太早，收摊慢一点就赶不上，只能坐 S2 绕。</p><div class="star">★★★★☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#6fa392">林</span><b>林间小满</b><span>昨天 21:05</span></div><p class="at">S3 西塘支线</p><p>堤顶路那段确实值得坐右侧，芦苇一眼望不到头。改停新码头站之后多走三分钟，但站台新，有顶棚，下雨天反而舒服些。</p><div class="star">★★★★★</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#b9892f">陈</span><b>陈师傅的邻居</b><span>昨天 18:22</span></div><p class="at">N1 夜班车</p><p>招手即停试行之后方便不少，但有些乘客不知道要提前一站说，司机到跟前才刹车，多少有点危险。建议站牌上写清楚。</p><div class="star">★★★☆☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#2f6f5e">小</span><b>小雨靴</b><span>昨天 16:50</span></div><p class="at">X5 学堂接驳</p><p>孩子坐 X5 上学，不设站位这点最让人放心。就是 17:10 那班加开之后，校门口还是挤，可能放学时间太集中了。</p><div class="star">★★★★☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#7a8699">渡</span><b>渡口阿伯</b><span>11 月 24 日</span></div><p class="at">P6 码头接驳</p><p>P6 跟着船班走，这点没得挑。有回船晚点四十分钟，接驳车就在那等，没催。票当日不限次也算厚道。</p><div class="star">★★★★★</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#c9702f">纸</span><b>纸飞机不飞</b><span>11 月 24 日</span></div><p class="at">票根</p><p>票根背面印潮位这个设计很有意思，第一次发现的时候看了半天。留了几张，翻出来能想起那天水涨到哪儿。</p><div class="star">★★★★★</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#6fa392">北</span><b>北码头常客</b><span>11 月 23 日</span></div><p class="at">R1 环线</p><p>环线准点率总体还行，但下雨天南段一改道，后面几站就全乱了。有次等了快三十分钟，司机说堤顶路堵。</p><div class="star">★★★☆☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#b9892f">石</span><b>石桥口音</b><span>11 月 22 日</span></div><p class="at">S2 跨河支线</p><p>涨潮时过浮桥慢是慢，但那个水声很值。建议赶时间的人别赌 S2，按 18 分钟算，稳一点。</p><div class="star">★★★★☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#2f6f5e">月</span><b>月票用户甲</b><span>11 月 21 日</span></div><p class="at">月票</p><p>68 元一个月，我每天来回两趟，肯定划算。但夜班不通用这件事一开始没注意，白补了一次钱。买之前问清楚。</p><div class="star">★★★★☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#7a8699">芦</span><b>芦苇荡看客</b><span>11 月 20 日</span></div><p class="at">S3 西塘支线</p><p>秋冬坐 S3 最好，光斜着照过来，芦苇是金色的。就是末班 19:50 有点早，看完日落就得往回赶。</p><div class="star">★★★★★</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#c9702f">钟</span><b>钟楼下的猫</b><span>11 月 19 日</span></div><p class="at">环线 R1</p><p>环线早高峰 9 分钟一班，比我想的密。钟楼站上车基本有座，到旧船厂就开始挤。通勤的话错开 8 点会舒服很多。</p><div class="star">★★★★☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#6fa392">潮</span><b>潮位观察员</b><span>11 月 18 日</span></div><p class="at">T7 潮汐改道</p><p>南塘站那块标尺加得好，肉眼就能读数，不用再问司机。就是标尺装得偏了点，站在候车棚里看不太清。</p><div class="star">★★★★☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#b9892f">学</span><b>学堂后门</b><span>11 月 17 日</span></div><p class="at">X5 学堂接驳</p><p>X5 学生免费这点很好，车上也安静。家长陪同按普通票价，2 元，能接受。就是早班 07:00 第一趟人太多。</p><div class="star">★★★★☆</div></div>
+            <div class="cmt"><div class="who"><span class="av" style="background:#7a8699">旧</span><b>旧船厂退休工</b><span>11 月 15 日</span></div><p class="at">3 号线</p><p>3 号线延到石桥之后方便了，以前还得在旧船厂转。票价没变，这个实在。就是新车旧车混着跑，坐着感受不太一样。</p><div class="star">★★★★☆</div></div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="sec" id="news">
+          <div class="sec-head">
+            <h2>小镇交通资讯</h2>
+            <span class="sub">近 30 天内的线路与站务变化</span>
+          </div>
+          <div class="news">
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/zixun-yeban-11/600/400" width="600" height="400" loading="lazy" alt="夜班车 N1 北码头站夜景与末班车">
+              <div>
+                <time datetime="2026-11-24">11 月 24 日</time>
+                <h3>夜班 N1 加开两班，末班推到 22:40</h3>
+                <p>钟楼与南塘夜间返程需求集中，调度室新增 21:50、22:40 两班，试行三个月后评估是否常态化。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/zixun-xitang-12/600/400" width="600" height="400" loading="lazy" alt="西塘支线新码头站站台与栈桥检修围挡">
+              <div>
+                <time datetime="2026-11-24">11 月 24 日</time>
+                <h3>S3 西塘支线改停新码头站</h3>
+                <p>旧码头站栈桥封闭检修，预计 12 月中恢复。新站步行多 3 分钟，站牌与语音播报已同步更新。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/zixun-chaowei-13/600/400" width="600" height="400" loading="lazy" alt="南塘站牌上新增的潮位标尺刻度">
+              <div>
+                <time datetime="2026-11-12">11 月 12 日</time>
+                <h3>南塘站牌加装潮位标尺，乘客可自行判断改道</h3>
+                <p>标尺读数与调度室同源，0.6 米与 2.4 米两条线用红漆标出，越过即触发 T7 改道方案。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/zixun-jishi-14/600/400" width="600" height="400" loading="lazy" alt="集市专线 M4 车厢后半段堆放的菜筐">
+              <div>
+                <time datetime="2026-11-23">11 月 23 日</time>
+                <h3>M4 集市专线 11 月 27 日开行，首班 05:20</h3>
+                <p>农历初八集日，南塘发车，回程末班 13:40。车厢后半段保留拆座放菜筐的安排，单程 3 元。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/zixun-yuepiao-15/600/400" width="600" height="400" loading="lazy" alt="北码头候车厅月票窗口与纸质月票">
+              <div>
+                <time datetime="2026-11-18">11 月 18 日</time>
+                <h3>12 月月票开售，窗口每日 08:00—18:00</h3>
+                <p>68 元，覆盖环线与四条支线，夜班另计。需带一寸照，北码头候车厅窗口办理，代售点暂不开放。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/zixun-zhaoshou-16/600/400" width="600" height="400" loading="lazy" alt="夜班车非站点路段乘客招手示意">
+              <div>
+                <time datetime="2026-11-24">11 月 24 日</time>
+                <h3>N1 试行招手即停，需提前一站告知司机</h3>
+                <p>仅限非站点路段，夜间视线差，调度室提醒乘客站在有路灯处招手，试行至 12 月 20 日。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="sec panel" id="rel">
+          <div class="sec-head" style="padding:18px 24px 0;margin-bottom:0">
+            <h2>相关方向</h2>
+            <span class="sub">顺着这些线索继续看</span>
+          </div>
+          <div class="reltags">
+            <a href="#featured">北码头候车厅取暖区</a>
+            <a href="#featured">旧船厂站台改造记录</a>
+            <a href="#deep">浮桥限速与潮位关系</a>
+            <a href="#guide">投币换零钱的地点</a>
+            <a href="#faq">月票第几次开始划算</a>
+            <a href="#news">3 号线延线后的票价</a>
+            <a href="#deep">票根上的潮位怎么读</a>
+            <a href="#cats">通学接驳的站位安排</a>
+          </div>
+        </section>
+
+        <!-- 11. 补充板块：线路时间线 -->
+        <section class="sec panel" id="timeline">
+          <div class="sec-head" style="padding:18px 24px 0;margin-bottom:8px">
+            <h2>近一个月的线路变化时间线</h2>
+            <span class="sub">按发生顺序排列</span>
+          </div>
+          <div class="timeline">
+            <div class="tl"><span class="date">11 月 25 日</span><span class="dot"></span><div class="cont"><h3>本周新增 9 条线路时刻上线</h3><p>环线夜班、西塘支线、集市专线三处调整合并发布，站牌与语音播报同步。</p></div></div>
+            <div class="tl"><span class="date">11 月 24 日</span><span class="dot"></span><div class="cont"><h3>S3 改停新码头站，N1 加开两班</h3><p>旧码头站封闭检修；夜班末班延至 22:40，新增 21:50 与 22:40。</p></div></div>
+            <div class="tl"><span class="date">11 月 23 日</span><span class="dot"></span><div class="cont"><h3>M4 集市专线下一集日确定</h3><p>11 月 27 日开行，首班 05:20 南塘发，回程末班 13:40。</p></div></div>
+            <div class="tl"><span class="date">11 月 22 日</span><span class="dot"></span><div class="cont"><h3>3 号线终点延至石桥</h3><p>原终点旧船厂改为经停，延线 1.8 公里，票价维持 2 元不变。</p></div></div>
+            <div class="tl"><span class="date">11 月 20 日</span><span class="dot"></span><div class="cont"><h3>北码头候车厅开放取暖区</h3><p>05:30—23:00 开放，提供热水，夜班候车可进厅。</p></div></div>
+            <div class="tl"><span class="date">11 月 15 日</span><span class="dot"></span><div class="cont"><h3>T7 潮汐改道冬季方案启用</h3><p>低水位时改走堤顶路，跳过南塘市场站，单程多约 6 分钟。</p></div></div>
+            <div class="tl"><span class="date">11 月 12 日</span><span class="dot"></span><div class="cont"><h3>南塘站牌加装潮位标尺</h3><p>0.6 米与 2.4 米两条阈值线用红漆标出，乘客可自行读数判断改道。</p></div></div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ============ 右辅助栏 ============ -->
+      <aside class="side-r" aria-label="热门与更新">
+        <div class="rank">
+          <h3>本周查询榜 <span class="tag">TOP 8</span></h3>
+          <ol>
+            <li><div><b>R1 环线时刻表</b><span>今日 2,180 次查看</span></div></li>
+            <li><div><b>夜班 N1 末班 22:40</b><span>今日 1,905 次查看</span></div></li>
+            <li><div><b>S3 新码头站位置</b><span>今日 1,290 次查看</span></div></li>
+            <li><div><b>S2 浮桥涨潮限速</b><span>今日 1,140 次查看</span></div></li>
+            <li><div><b>月票 68 元划算吗</b><span>今日 1,020 次查看</span></div></li>
+            <li><div><b>M4 集日首班 05:20</b><span>今日 870 次查看</span></div></li>
+            <li><div><b>T7 潮位 2.4 米阈值</b><span>今日 760 次查看</span></div></li>
+            <li><div><b>票根背面潮位读法</b><span>今日 640 次查看</span></div></li>
+          </ol>
+        </div>
+
+        <div class="rank">
+          <h3>今日运营提醒</h3>
+          <ul class="updatefeed">
+            <li><b>环线 R1</b><span>正常，南段未触发改道</span></li>
+            <li><b>S3 西塘支线</b><span>改停新码头站，旧站封闭</span></li>
+            <li><b>N1 夜班车</b><span>末班 22:40，可招手即停</span></li>
+            <li><b>T7 潮汐</b><span>今日水位 1.6 米，未触发</span></li>
+            <li><b>北码头候车厅</b><span>取暖区开放至 23:00</span></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-in">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg width="30" height="30" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="21" fill="#2f6f5e"/>
+            <rect x="15" y="19" width="18" height="12" rx="3" fill="#f6f3ec"/>
+            <circle cx="19" cy="32.5" r="2" fill="#c9702f"/>
+            <circle cx="29" cy="32.5" r="2" fill="#c9702f"/>
+          </svg>
+          <strong>浮荡小镇公交车</strong>
+        </div>
+        <p>记录一条会随潮水改道的小镇公交系统：线路时刻、站点变迁、票价规则与车厢里的日常。</p>
+      </div>
+      <div class="foot-col">
+        <h4>线路</h4>
+        <ul>
+          <li><a href="#featured">R1 环线主线</a></li>
+          <li><a href="#featured">S2 跨河支线</a></li>
+          <li><a href="#featured">S3 西塘支线</a></li>
+          <li><a href="#featured">N1 夜班车</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>乘车</h4>
+        <ul>
+          <li><a href="#guide">换乘与票价</a></li>
+          <li><a href="#cats">按需求选线</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#deep">潮汐改道规则</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>动态</h4>
+        <ul>
+          <li><a href="#updates">最新更新</a></li>
+          <li><a href="#news">小镇交通资讯</a></li>
+          <li><a href="#timeline">线路变化时间线</a></li>
+          <li><a href="#comments">乘客留言</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p class="disc">页面所载时刻、票价与站点信息按 2026 年 11 月 25 日运营情况整理，遇潮汐改道、栈桥检修或临时调度时以站牌通告与司机播报为准。本站为独立整理的乘车参考，非官方发布渠道。</p>
+      <p>© 2026 浮荡小镇公交车 · 内容整理与站点记录</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var btn = document.getElementById('qbtn');
+  var hint = document.getElementById('hint');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cardgrid .card'));
+
+  function render(list, kw){
+    if(!kw){ hint.classList.remove('on'); hint.innerHTML=''; return; }
+    hint.classList.add('on');
+    if(!list.length){
+      hint.innerHTML = '<div class="sh-title">没有匹配的线路</div><div class="empty">换个站点名试试，例如“北码头”“石桥”“夜班”</div>';
+      return;
+    }
+    var html = '<div class="sh-title">找到 '+list.length+' 条相关线路</div><ul>';
+    list.slice(0,6).forEach(function(c){
+      var t = c.querySelector('h3').textContent;
+      var d = c.querySelector('.desc').textContent.slice(0,26);
+      html += '<li><b>'+t+'</b><br><span style="color:#7a8699">'+d+'…</span></li>';
+    });
+    html += '</ul>';
+    hint.innerHTML = html;
+  }
+
+  function run(){
+    var kw = q.value.trim().toLowerCase();
+    if(!kw){ render([], ''); cards.forEach(function(c){c.style.display=''}); return; }
+    var hit = cards.filter(function(c){
+      return (c.dataset.key || '').toLowerCase().indexOf(kw) > -1;
+    });
+    cards.forEach(function(c){ c.style.display = hit.indexOf(c) > -1 ? '' : 'none'; });
+    render(hit, kw);
+  }
+
+  q.addEventListener('input', run);
+  btn.addEventListener('click', run);
+  q.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); run(); } });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.searchbox')) hint.classList.remove('on');
+  });
+  q.addEventListener('focus', function(){ if(q.value.trim()) hint.classList.add('on'); });
+})();
+</script>
+</body>
+  </html>
